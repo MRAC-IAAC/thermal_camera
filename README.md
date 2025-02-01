@@ -28,6 +28,13 @@ This project integrates a thermal camera with an Arduino to capture real-time te
 
 ---
 
+## Repository Python Files Navigation:
+#### camera_area.py 
+- is the file that calculates the area of darkest parts (coldes) of the image from Thermal Camera). This file was made to practice the workflow of Thermal Camera and to understand work with openCV to contour desired areas of the image and calculate the area of it
+
+#### camera_2.py 
+- This project monitors indoor conditions by detecting normal ambient states (around 24°C, 50% humidity) and identifying anomalies (temperature >30°C, humidity >90%) using Arduino sensors. When an anomaly occurs, it prompts to open a window, and the thermal camera detects the window's open state, analyzes its area, and tracks heat loss speed until conditions return to normal.
+
 ## Requirements
 
 ### Hardware

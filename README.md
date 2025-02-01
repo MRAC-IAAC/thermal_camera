@@ -1,5 +1,7 @@
 # Thermal Camera with Arduino Integration
 
+<img width="470" alt="Screenshot 2025-02-01 at 16 20 19" src="https://github.com/user-attachments/assets/5965d23d-e20d-474f-86e2-cdf6b615be19" />
+
 This project combines a thermal camera with Arduino-based environmental sensors to monitor indoor conditions in real time. It detects temperature and humidity anomalies, analyzes thermal images, and provides automated responses to maintain optimal indoor environments. When high temperature (>30°C) and humidity (>90%) are detected, the system prompts the user to open a window. The thermal camera then identifies the open window, measures heat loss speed, and tracks temperature normalization. All data, including sensor readings, detected anomalies, and annotated thermal images, are logged for further analysis, making this an effective solution for indoor climate monitoring and optimization.
 
 

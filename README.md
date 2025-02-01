@@ -1,6 +1,7 @@
 # Thermal Camera with Arduino Integration
 
-This project integrates a thermal camera with an Arduino to capture real-time temperature and humidity data. It overlays sensor readings on thermal images, detects the darkest contours in the image, and saves annotated screenshots along with metadata (e.g., temperature, humidity, and contour area) in a CSV file.
+This project combines a thermal camera with Arduino-based environmental sensors to monitor indoor conditions in real time. It detects temperature and humidity anomalies, analyzes thermal images, and provides automated responses to maintain optimal indoor environments. When high temperature (>30°C) and humidity (>90%) are detected, the system prompts the user to open a window. The thermal camera then identifies the open window, measures heat loss speed, and tracks temperature normalization. All data, including sensor readings, detected anomalies, and annotated thermal images, are logged for further analysis, making this an effective solution for indoor climate monitoring and optimization.
+
 
 ---
 
@@ -29,11 +30,14 @@ This project integrates a thermal camera with an Arduino to capture real-time te
 ---
 
 ## Repository Python Files Navigation:
+
 #### camera_area.py 
-- is the file that calculates the area of darkest parts (coldes) of the image from Thermal Camera). This file was made to practice the workflow of Thermal Camera and to understand work with openCV to contour desired areas of the image and calculate the area of it
+- This project is made as an excercise project that calculates the area of darkest parts (coldes) of the image from Thermal Camera). This file was made to practice the workflow of Thermal Camera and to understand work with openCV to contour desired areas of the image and calculate the area of it
 
 #### camera_2.py 
 - This project monitors indoor conditions by detecting normal ambient states (around 24°C, 50% humidity) and identifying anomalies (temperature >30°C, humidity >90%) using Arduino sensors. When an anomaly occurs, it prompts to open a window, and the thermal camera detects the window's open state, analyzes its area, and tracks heat loss speed until conditions return to normal.
+
+## WARING: Both of the files work with the following setup:
 
 ## Requirements
 
@@ -129,7 +133,7 @@ sudo python3 camera_area.py
 
 ---
 
-## Expected Output
+## Expected Output for camera_area.py
 
 ### Real-Time Display
 - The thermal camera feed will:
@@ -139,6 +143,23 @@ sudo python3 camera_area.py
     - Temperature (from Arduino).
     - Humidity (from Arduino).
     - Area of the darkest (coldest) region.
+
+## Expected Output for camera_2.py
+
+### Real-Time Display
+- The thermal camera feed will:
+  - Highlight the hottest (red) and coldest (blue) regions for easy identification.
+  - Show a color bar to indicate the full temperature range.
+  - Overlay sensor data, including:
+    - Temperature readings from Arduino.
+    - Humidity levels from Arduino.
+    - Area of the coldest (darkest) region detected by the camera.
+- Anomaly Detection & Response:
+  - When temperature exceeds 30°C and humidity surpasses 90%, the system prompts: “Please open the window”.
+  - The thermal camera detects an open window based on low-temperature regions (dark blue) and measures heat loss speed through the open area.
+  - When temperature and humidity return to normal, the system signals: “Normal ambient”.
+  - Saved Data (sensor_data.csv)
+
 
 ### Saved Data (sensor_data.csv)
 - A sample entry:
